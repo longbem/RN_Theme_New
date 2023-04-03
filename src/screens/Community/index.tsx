@@ -1,5 +1,6 @@
 import {useUserInfoState} from '@src/atom/user';
 import {Button} from '@src/components/Button';
+import {ButtonSwitch} from '@src/components/ButtonSwitch';
 import {Container} from '@src/components/Container';
 import {Input} from '@src/components/Input';
 import {TextStories} from '@src/components/TextStories';
@@ -23,6 +24,10 @@ const CommunityScreen: React.FC<
 
   const onError = (errors: any) => {
     Alert.alert('error');
+  };
+
+  const onChange = (value: boolean) => {
+    console.log('value button switch', value);
   };
 
   return (
@@ -56,6 +61,10 @@ const CommunityScreen: React.FC<
       <TextStories>Thông tin form</TextStories>
       <TextStories>{`Email: ${user?.email}`}</TextStories>
       <TextStories>{`Phone: ${user?.phone}`}</TextStories>
+      <Container flexDirection="row">
+        <TextStories>Button Switch: </TextStories>
+        <ButtonSwitch onChange={onChange} value={true} />
+      </Container>
     </Container>
   );
 };
